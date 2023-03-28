@@ -22,7 +22,7 @@ function App(): JSX.Element {
     <SafeAreaView style={backgroundStyle}>
       <Button
         text="Content"
-        bgColor="tomato"
+        bgcolor="tomato"
         color="green"
         style={{borderRadius: 64}}
       />
