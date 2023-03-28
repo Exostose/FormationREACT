@@ -6,11 +6,11 @@ const Button = props => {
   //console.log(props);
   return (
     <TouchableHighlight
-      style={{...styles.Button, ...props.style}}
+      style={{...styles.Button, ...props.style, backgroundColor: props.bgColor}}
       onPress={evt => {
         console.log('EvenementBouton', evt.target);
       }}>
-      <Text style={styles.text}>{props.text}</Text>
+      <Text style={{...styles.text, color: props.color}}>{props.text}</Text>
     </TouchableHighlight>
   );
 };
