@@ -34,7 +34,14 @@ function App(): JSX.Element {
           {counter}
         </Text>
       </View>
-      <Button bgcolor="tomato" color="green" style={{borderRadius: 64}}>
+      <Button
+        bgcolor="tomato"
+        color="green"
+        style={{borderRadius: 64}}
+        onPress={() => {
+          counter -= 1;
+          console.log(counter);
+        }}>
         <Image
           source={{
             uri: 'https://cdn1.iconfinder.com/data/icons/city-flat-2/512/tree_element_nature_plant_garden_bush-1024.png',
@@ -43,7 +50,13 @@ function App(): JSX.Element {
         />
         <Text>Enlever</Text>
       </Button>
-      <Button text="Ajouter" />
+      <Button
+        text="Ajouter"
+        onPress={() => {
+          counter += 1;
+          console.log(counter);
+        }}
+      />
       {/* <Button children="Button3" /> */}
       <NButton title="Hello World"></NButton>
     </SafeAreaView>
