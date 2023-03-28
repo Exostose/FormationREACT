@@ -9,6 +9,19 @@
       "withTest": true,
       "withStory": false,
       "withLazy": false
+    },
+    "rnfunction": {
+      "path": "src/components",
+      "withStyle": true,
+      "withTest": true,
+      "withStory": true,
+      "withLazy": false,
+      "customTemplates":{
+        "component": "grc-templates/genericFunction/TemplateName.js",
+        "styles": "grc-templates/genericFunction/TemplateName.styles.js",
+        "test": "grc-templates/genericFunction/TemplateName-test.js",
+        "story": "grc-templates/genericFunction/Readme.md"
+      }
     }
   }
 }
