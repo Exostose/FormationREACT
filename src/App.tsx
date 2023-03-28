@@ -36,7 +36,7 @@ function App(): JSX.Element {
         <Text>Cliquez ici</Text>
       </Button>
       <Button text="Button2" />
-      <Button children="Button3" />
+      {/* <Button children="Button3" /> */}
       <NButton title="Hello World"></NButton>
     </SafeAreaView>
   );
