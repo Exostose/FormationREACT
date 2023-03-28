@@ -3,10 +3,10 @@ import {Text, TouchableHighlight} from 'react-native';
 import styles from './Button.styles';
 
 const Button = props => {
-  console.log(props);
+  //console.log(props);
   return (
     <TouchableHighlight
-      style={styles.Button}
+      style={{...styles.Button, ...props.style}}
       onPress={evt => {
         console.log('EvenementBouton', evt.target);
       }}>
