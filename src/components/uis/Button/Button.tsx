@@ -2,17 +2,23 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {Text, TouchableHighlight, View} from 'react-native';
 import styles from './Button.styles';
-
-const Button = props => {
+interface IButtonProps {
+  style?: object;
+  bgcolor?: string;
+  color?: string;
+  text?: string;
+  children?: React.ReactElement | Array<React.ReactElement>;
+}
+const Button: React.FC<IButtonProps> = props => {
   console.log(props);
   return (
     <TouchableHighlight
       style={{...styles.Button, ...props.style, backgroundColor: props.bgcolor}}
       onPress={evt => {
-        console.log('EvenementBouton', evt.target);
+        console.log(evt.target);
       }}>
       <View>
-        {props.children !== undefined ? (
+        {undefined !== props.children ? (
           props.children
         ) : (
           <Text style={{...styles.text, color: props.color}}>{props.text}</Text>
