@@ -5,7 +5,7 @@
  * @format
  */
 
-import React from 'react';
+import React, {useState} from 'react';
 import {
   SafeAreaView,
   useColorScheme,
@@ -25,7 +25,7 @@ function App(): JSX.Element {
   const backgroundStyle = {
     backgroundColor: isDarkMode ? Colors.lighter : Colors.lighter,
   };
-  let counter = 0;
+  const [counter, setcounter] = useState(0);
   return (
     <SafeAreaView style={backgroundStyle}>
       <View>
@@ -39,24 +39,28 @@ function App(): JSX.Element {
         color="green"
         style={{borderRadius: 64}}
         onPress={() => {
-          counter -= 1;
+          setcounter(counter - 1);
           console.log(counter);
         }}>
         <Image
           source={{
             uri: 'https://cdn1.iconfinder.com/data/icons/city-flat-2/512/tree_element_nature_plant_garden_bush-1024.png',
           }}
-          style={{width: 32, height: 32}}
+          style={{width: 64, height: 64}}
         />
-        <Text>Enlever</Text>
+        <Text style={{...styles.displayCounterText, ...styles.big}}>
+          Soustraire
+        </Text>
       </Button>
       <Button
-        text="Ajouter"
         onPress={() => {
-          counter += 1;
+          setcounter(counter + 1);
           console.log(counter);
-        }}
-      />
+        }}>
+        <Text style={{...styles.displayCounterText, ...styles.big}}>
+          Ajouter
+        </Text>
+      </Button>
       {/* <Button children="Button3" /> */}
       <NButton title="Hello World"></NButton>
     </SafeAreaView>
@@ -66,10 +70,11 @@ function App(): JSX.Element {
 const styles = StyleSheet.create({
   displayCounterText: {
     textAlign: 'center',
+    textAlignVertical: 'center',
   },
   big: {
     fontSize: 18,
-    fontweight: '900',
+    fontWeight: '900',
   },
 });
 
