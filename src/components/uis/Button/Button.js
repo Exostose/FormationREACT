@@ -1,17 +1,23 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {Text, TouchableHighlight} from 'react-native';
+import {Text, TouchableHighlight, View} from 'react-native';
 import styles from './Button.styles';
 
 const Button = props => {
-  // console.log(props);
+  console.log(props);
   return (
     <TouchableHighlight
       style={{...styles.Button, ...props.style, backgroundColor: props.bgcolor}}
       onPress={evt => {
         console.log('EvenementBouton', evt.target);
       }}>
-      <Text style={{...styles.text, color: props.color}}>{props.text}</Text>
+      <View>
+        {props.children !== undefined ? (
+          props.children
+        ) : (
+          <Text style={{...styles.text, color: props.color}}>{props.text}</Text>
+        )}
+      </View>
     </TouchableHighlight>
   );
 };
@@ -19,8 +25,9 @@ const Button = props => {
 Button.propTypes = {
   bgcolor: PropTypes.string.isRequired,
   color: PropTypes.string.isRequired,
-  text: PropTypes.string.isRequired,
+  text: PropTypes.string,
   style: PropTypes.object,
+  children: PropTypes.any,
 };
 Button.defaultProps = {
   bgcolor: 'skyblue',
