@@ -31,6 +31,12 @@ function App(): JSX.Element {
     console.log('Nouvelle valeur de counter : ', counter);
     console.log('============================');
   }, [counter]);
+  useEffect(() => {
+    console.log('montage');
+    return () => {
+      console.log('demontage');
+    };
+  }, []);
   return (
     <SafeAreaView style={backgroundStyle}>
       <View>
