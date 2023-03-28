@@ -5,7 +5,7 @@
         "name": "Coca cola 1.5L",
         "prix": 2.0,
         "image": "https://allopizza88.fr/wp-content/uploads/2019/03/coca-cola-maxi-600x600.png",
-        "description" : "dfjklkjhgfghjklm",
+        "description" : "description 1",
         "stock" : 1 
       },
       {
@@ -13,7 +13,7 @@
           "name": "Breizh cola 1.5L",
           "prix": 1.9,
           "image": "https://prmeng.rosselcdn.net/sites/default/files/dpistyles_v2/ena_16_9_extra_big/2021/01/05/node_153959/38059938/public/2021/01/05/image_breizh_cola_visuel_0.png?itok=IHi852hh1609869799",
-          "description" : "dfjklkjhgfghjklm",
+          "description" : "description 2",
           "stock" : 10 
         },
         {
@@ -21,7 +21,7 @@
             "name": "Beurre SALE 250grs",
             "prix": 2.9,
             "image": "https://www.paysanbreton.com/sites/default/files/product/2022-02/beurre-demi-sel-new-pack.png",
-            "description" : "dfjklkjhgfghjklm",
+            "description" : "description 3",
             "stock" : 10 
           }
     ]
