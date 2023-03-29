@@ -26,9 +26,7 @@ function App(): JSX.Element {
   };
   const [produits, setProduits] = useState([]);
   useEffect(() => {
-    fetch(
-      'http://my-json-server.typicode.com/champix56/frncv1-2023-03-27/Products',
-    )
+    fetch('http://localhost:7956/products/')
       .then(retour => {
         return retour.json();
       })
