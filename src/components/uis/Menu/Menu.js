@@ -30,7 +30,6 @@ const Menu = props => {
           style={styles.buttonImage}
         />
       </TouchableHighlight>
-      <Text>menu</Text>
     </View>
   );
 };
