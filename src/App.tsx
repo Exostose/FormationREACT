@@ -17,6 +17,7 @@ import {
 import {Colors} from 'react-native/Libraries/NewAppScreen';
 import MainLayout from './components/layouts/MainLayout/MainLayout';
 import Menu from './components/uis/Menu/Menu';
+import Home from './pages/Home/Home';
 import ListProduct from './pages/ListProduct/ListProduct';
 
 function App(): JSX.Element {
@@ -35,14 +36,11 @@ function App(): JSX.Element {
   return (
     <SafeAreaView style={backgroundStyle}>
       <MainLayout>
+        {/* <Home produits={produits} /> */}
         <ScrollView style={styles.page}>
-          {produits.map((p: any) => (
-            <Text>{p.name}</Text>
-          ))}
-          <ListProduct />
+          <ListProduct produits={produits} />
         </ScrollView>
         <Menu />
-        <ListProduct />
       </MainLayout>
     </SafeAreaView>
   );
