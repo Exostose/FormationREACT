@@ -9,10 +9,10 @@ produits.slice = createSlice({
   initialState,
   reducers: {
     loadProducts: (state, action) => {
-      state.produits = action.payload;
+      state.produits.push(...action.payload);
     },
     clearProducts: state => {
-      state.produits = [];
+      state.produits.splice(0);
     },
   },
 });
