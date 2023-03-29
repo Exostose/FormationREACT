@@ -19,6 +19,8 @@ import MainLayout from './components/layouts/MainLayout/MainLayout';
 import Menu from './components/uis/Menu/Menu';
 import Home from './pages/Home/Home';
 import ListProduct from './pages/ListProduct/ListProduct';
+import {loadProducts} from './store/produits.slice';
+import {store} from './store/store';
 
 function App(): JSX.Element {
   const isDarkMode = useColorScheme() === 'dark';
@@ -31,7 +33,9 @@ function App(): JSX.Element {
       .then(retour => {
         return retour.json();
       })
-      .then(arr => setProduits(arr));
+      .then(arr => {
+        setProduits(arr), store.dispatch({type: loadProducts, payload: arr});
+      });
   }, []);
   return (
     <SafeAreaView style={backgroundStyle}>
