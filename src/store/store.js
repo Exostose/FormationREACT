@@ -1,12 +1,19 @@
-import {configureStore} from '@reduxjs/toolkit';
-import produitsReducer from './produits.slice';
+import {configureStore, combineReducers} from '@reduxjs/toolkit';
+import produitsReducer, {fetchAll} from './produits.slice';
+import navigationReducer from './navigation.slice';
 
 export const store = configureStore({
-  reducer: produitsReducer,
+  reducer: combineReducers({
+    stock: produitsReducer,
+    navigation: navigationReducer,
+  }),
+});
+store.dispatch(fetchAll());
+store.subscribe(() => {
+  console.log('==========STORE=====================');
+  console.log(store.getState());
+  console.log('=========END STORE==================');
 });
 
-store.subscribe(() => {
-  console.log('================================');
-  console.log(store.getState());
-  console.log('================================');
-});
+//state={produits:[]}
+// state={stock:{produits:[]}}

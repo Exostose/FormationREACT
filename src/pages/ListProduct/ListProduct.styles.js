@@ -1,11 +1,11 @@
 import {StyleSheet} from 'react-native';
 
 export default StyleSheet.create({
-  ListProduct: {},
   scview: {
     flexDirection: 'row',
     flexWrap: 'wrap',
     justifyContent: 'space-around',
+    backgroundColor: '#ECEFEF',
   },
   title: {
     textAlign: 'center',

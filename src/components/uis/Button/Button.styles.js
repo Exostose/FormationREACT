@@ -16,6 +16,6 @@ export default StyleSheet.create({
   },
   mainView: {
     flexDirection: 'row',
-    alignItem: 'center',
+    alignItems: 'center',
   },
 });

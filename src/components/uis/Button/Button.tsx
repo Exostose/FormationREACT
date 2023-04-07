@@ -31,7 +31,6 @@ const Button: React.FC<IButtonProps> = props => {
     </TouchableHighlight>
   );
 };
-
 Button.propTypes = {
   bgcolor: PropTypes.string.isRequired,
   color: PropTypes.string.isRequired,

@@ -11,7 +11,6 @@ import {
   useColorScheme,
   StyleSheet,
   ScrollView,
-  Text,
 } from 'react-native';
 
 import {Colors} from 'react-native/Libraries/NewAppScreen';
@@ -19,38 +18,36 @@ import {useSelector} from 'react-redux';
 import {useDispatch} from 'react-redux';
 import MainLayout from './components/layouts/MainLayout/MainLayout';
 import Menu from './components/uis/Menu/Menu';
-import Home from './pages/Home/Home';
-import ListProduct from './pages/ListProduct/ListProduct';
-import {loadProducts} from './store/produits.slice';
-import {store} from './store/store';
 import IProduit from './interfaces/IProduits';
+import Home from './pages/Home/Home';
+import {setPage} from './store/navigation.slice';
+import {loadProducts} from './store/produits.slice';
 
 function App(props: any): JSX.Element {
   const isDarkMode = useColorScheme() === 'dark';
-  const backgroundStyle = {
-    backgroundColor: isDarkMode ? Colors.lighter : Colors.lighter,
-  };
 
+  const backgroundStyle = {
+    backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
+  };
   useEffect(() => {
-    fetch('http://localhost:7956/products/')
-      .then(retour => {
-        return retour.json();
-      })
-      .then(arr => {
-        console.log(loadProducts(arr));
-        //store.dispatch({type: loadProducts, payload: arr});
-        props.loadProducts(arr);
-      });
+    props.changeChild(<Home produits={[{}]} />);
   }, []);
   useEffect(() => {
+    console.log('===========PROPS APP CHANGE=========');
     console.log(props);
+    console.log('======END PROPS APP CHANGE==========');
   }, [props]);
   return (
     <SafeAreaView style={backgroundStyle}>
       <MainLayout>
-        {/* <Home produits={produits} /> */}
         <ScrollView style={styles.page}>
-          <ListProduct produits={props.produits} />
+          {/* <ListProduct produits={props.produits} /> */}
+          {/* <ConnectedProductEditor idproduit={1} /> */}
+          {/*  produit={props.produits[0]}
+            saveProduct={(newProduct: IProduit) => {
+              console.log(newProduct);
+            }} */}
+          {undefined !== props.children && props.children}
         </ScrollView>
         <Menu />
       </MainLayout>
@@ -65,16 +62,22 @@ const styles = StyleSheet.create({
 });
 
 export const StoreConnectedApp = (props: any) => {
-  const produits = useSelector((state: any) => state.produits);
-  const dispatch = useDispatch();
+  const produits = useSelector((state: any) => state.stock.produits);
+  const children = useSelector((state: any) => state.navigation.component);
+  const disptach = useDispatch();
   return (
     <App
       {...props}
       produits={produits}
       loadProducts={(arr: Array<IProduit>) => {
-        dispatch(loadProducts(arr));
+        disptach(loadProducts(arr));
+      }}
+      children={children}
+      changeChild={(newChild: React.Component) => {
+        disptach(setPage(newChild));
       }}
     />
   );
 };
+
 export default App;

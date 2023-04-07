@@ -1,5 +1,3 @@
 import {StyleSheet} from 'react-native';
 
-export default StyleSheet.create({
-  EditProduct: {},
-});
+export default StyleSheet.create({EditProduct: {}});
